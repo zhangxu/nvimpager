@@ -40,8 +40,8 @@ local function set_maps()
   map('g', 'gg')
   map('<Up>', '<C-Y>')
   map('<Down>', '<C-E>')
-  map('k', '<C-Y>')
-  map('j', '<C-E>')
+  -- map('k', '<C-Y>')
+  -- map('j', '<C-E>')
   map('F', nvimpager.toggle_follow)
 end
 
