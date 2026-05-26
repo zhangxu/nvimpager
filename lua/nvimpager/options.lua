@@ -6,4 +6,6 @@ return {
   -- follow the end of the file when it changes (like tail -f or less +F)
   follow = false,
   follow_interval = 500, -- interval to check the underlying file in ms
+  wrap = true,
+  linebreak = true,
 }
