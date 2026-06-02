@@ -11,7 +11,7 @@ export PARENT
 export TMPFILE
 export NVIM_APPNAME=nvimpager
 
-mode=auto
+mode=pager
 nvim=${NVIMPAGER_NVIM:-nvim}
 
 usage () {
@@ -26,9 +26,9 @@ description () {
 	Options:
 	  -h		this help
 	  -v		version output
-	  -a		enforce auto mode (default)
+	  -a		enforce auto mode
 	  -c		enforce cat mode
-	  -p		enforce pager mode
+	  -p		enforce pager mode (default)
 
 	All further arguments are passed to neovim.  But one has to add "--"
 	if the first argument is an option in order to stop this script from
