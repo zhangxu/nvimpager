@@ -43,6 +43,7 @@ local function set_maps()
   -- map('k', '<C-Y>')
   -- map('j', '<C-E>')
   map('F', nvimpager.toggle_follow)
+  map('v', nvim.nvim_buf_set_option(0, 'modifiable', true))
 end
 
 --- Setup function for the VimEnter autocmd.
