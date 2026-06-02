@@ -26,11 +26,6 @@ function nvimpager.toggle_follow()
   end
 end
 
-function nvimpager.editing_mode()
-    print("Entered editing mode!")
-    nvim.nvim_buf_set_option(0, 'modifiable', true)
-end
-
 --- Set up mappings to make nvim behave a little more like a pager.
 local function set_maps()
   local function map(lhs, rhs, mode)
@@ -48,7 +43,7 @@ local function set_maps()
   -- map('k', '<C-Y>')
   -- map('j', '<C-E>')
   map('F', nvimpager.toggle_follow)
-  map('VV', nvimpager.editing_mode)
+  map('VV', nvimpager.enter_editing)
 end
 
 --- Setup function for the VimEnter autocmd.

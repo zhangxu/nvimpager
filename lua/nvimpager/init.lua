@@ -168,7 +168,15 @@ function nvimpager.stage1()
     nvim.nvim_create_autocmd("VimLeavePre", {pattern = "*", once = true,
       group = group, callback = function() os.remove(tmp) end})
   end
+
   doc = detect_parent_process()
+
+  if doc == 'git' or doc == 'man' then
+      nvimpager.enter_editing = reject_editing
+  else	
+      nvimpager.enter_editing = editing_mode
+  end	
+
   if doc == 'git' then
     -- We disable modelines for this buffer as they could disturb the git
     -- highlighting in diffs.
@@ -180,6 +188,15 @@ function nvimpager.stage1()
   -- file.
   nvim.nvim_set_option('mouse', 'a')
   nvim.nvim_set_option('laststatus', 0)
+end
+
+function editing_mode()
+    print(string.format("-- ENTERED EDITING MODE! --", doc))
+    nvim.nvim_buf_set_option(0, 'modifiable', true)
+end
+
+function reject_editing()
+    print(string.format("-- REJECT EDITING FOR `%s' --", doc))
 end
 
 --- Set up autocomands to start the correct mode after startup or for each
