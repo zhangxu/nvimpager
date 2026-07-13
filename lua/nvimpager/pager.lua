@@ -49,6 +49,7 @@ end
 --- Setup function for the VimEnter autocmd.
 --- This function will be called for each buffer once
 local function pager_mode()
+  nvim.nvim_set_option("clipboard", "unnamed")
   if util.check_escape_sequences() then
     -- Try to highlight ansi escape sequences.
     ansi2highlight.run()
